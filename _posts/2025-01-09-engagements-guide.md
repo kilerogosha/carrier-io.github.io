@@ -107,3 +107,19 @@ Also, you should confirm your choice by clicking **Yes**
 ![Ticket Details](/assets/posts_img/ticket_details.png)
 At the bottom of the page you can add or edit comments, and check the latest activities.
 ![Ticket Details](/assets/posts_img/ticket_bottom.png)
+
+### Step 6: Switching between boards and tickets
+1. You can add another board and switch between them using the dropdown menu.
+![Switch board](/assets/posts_img/switch_board.png)
+
+2. Each ticket assigned to a particular board will be available on it.
+![Board with new ticket](/assets/posts_img/board_with_new_ticket.png)
+
+3. You can check all the tickets in **Tickets** tab
+![Tickets tab](/assets/posts_img/tickets_tab.png)
+
+4. This page contains information about all the tickets, you can click on the ticket name to get more details.
+![Ticket page](/assets/posts_img/ticket_page.png)
+
+5. On the following page, you can edit your tickets (for example, assign a ticket to the board).  
+![Ticket edit page](/assets/posts_img/ticket_to_board_assignee.png)
