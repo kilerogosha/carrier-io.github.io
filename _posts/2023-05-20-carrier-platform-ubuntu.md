@@ -55,7 +55,7 @@ After completing these steps, you have successfully installed Docker, Docker Com
 ### Carrier Installation Steps
 1. Using root user clone the carrier-io [centry](https://github.com/carrier-io/centry/blob/beta-1.0/Makefile) repository to the `/opt` directory:
 ```bash
-git clone https://github.com/carrier-io/centry.git -b beta-1.0 /opt/centry
+git clone https://github.com/carrier-io/centry.git -b beta-3.0 /opt/centry
 ```
 
 2. Navigate to the downloaded folder:
@@ -73,6 +73,7 @@ export CURRENT_IP=$(curl -s ifconfig.me)
 
 4. Set parameters in `.env` and `Makefile` file
 
+It is recommended to update `.env` and `Makefile` manually, but you can also try next commands to do it automatically. Please double check that all the values are updated
 
     4.1 Set IP (change `DEV_IP` and `DIRECT_IP` to `CURRENT_IP`):
 
@@ -83,13 +84,20 @@ export CURRENT_IP=$(curl -s ifconfig.me)
 
     4.2 Set installation path in for `CARRIER_PATH` and `VOLUMES_PATH` in `.env`:
 
+     If you are going to store your data on the disk instead of docker volumes you should update `.env` and `Makefile`
+
+        vi Makefile
+        ....
+        LOCAL_VOLUMES=true
+        ....
+
         vi .env
         ....
         CARRIER_PATH=/opt/centry
         VOLUMES_PATH=/opt/centry/volumes
         ....
 
-5. Review list of default plugins in config file:
+5. Review list of default plugins in config file (optional. It contains all required plugins for beta-3.0):
 ```bash
 cat config/pylon.yml
 ```
@@ -103,7 +111,7 @@ make up
 
     ```console
     Status: Downloaded newer image for grafana/grafana:latest
-    Pulling pylon (getcarrier/pylon:latest)...
+    Pulling pylon (getcarrier/pylon:beta-3.0)...
     latest: Pulling from getcarrier/pylon
     918547b94326: Pull complete
     5d79063a01c5: Pull complete
@@ -119,7 +127,7 @@ make up
     2c59c872b36d: Pull complete
     cb98fd0463c7: Pull complete
     Digest: sha256:c9704508366b319d0c2c0414fb7271e34b458fb63a794522bf03833b9ba509ae
-    Status: Downloaded newer image for getcarrier/pylon:latest
+    Status: Downloaded newer image for getcarrier/pylon:beta-3.0
     Creating carrier-influx   ... done
     Creating carrier-postgres ... done
     Creating carrier-redis    ... done

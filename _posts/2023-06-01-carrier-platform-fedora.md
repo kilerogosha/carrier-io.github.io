@@ -103,7 +103,7 @@ Make sure to execute these additional steps before proceeding with the Carrier i
 
 1. Сlone the carrier-io centry repository to the `/opt` directory:
 ```bash
-git clone https://github.com/carrier-io/centry.git -b beta-1.0 /opt/centry
+git clone https://github.com/carrier-io/centry.git -b beta-3.0 /opt/centry
 ```
 
 2. Navigate to the downloaded folder:
@@ -117,6 +117,9 @@ export CURRENT_IP=$(curl -s ifconfig.me)
 ```
 
 4. Set the IP parameters in the `.env` and `Makefile` files:
+
+It is recommended to update `.env` and `Makefile` manually, but you can also try next commands to do it automatically. Please double check that all the values are updated
+
 ```bash
 sudo sed -i -e "s/\$APP_IP/$CURRENT_IP/g" .env
 sudo sed -i -e "s/\#DIRECT_IP=YOUR_IP_HERE/DIRECT_IP=$CURRENT_IP/g" Makefile
@@ -125,8 +128,15 @@ sudo sed -i -e "s/\#DIRECT_IP=YOUR_IP_HERE/DIRECT_IP=$CURRENT_IP/g" Makefile
 5. Update the installation path in the `.env` file:
 ```bash
 sudo vi .env
-# Update the CARRIER_PATH and VOLUMES_PATH variables with /opt/centos
+# Update the CARRIER_PATH and VOLUMES_PATH variables with /opt/centry
 ```
+
+If you are going to store your data on the disk instead of docker volumes you should update `.env` and `Makefile`
+
+        vi Makefile
+        ....
+        LOCAL_VOLUMES=true
+        ....
 
         vi .env
         ....
