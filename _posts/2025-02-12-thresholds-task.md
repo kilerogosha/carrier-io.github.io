@@ -17,7 +17,9 @@ Before you begin creating automatic thresholds in Carrier, ensure that you have 
 
 - Installed and set up Carrier successfully.
 - Created a project in Carrier.
-- Configured and executed a test and marked it as the baseline.
+- Configured and executed a test and set it as the baseline.
+
+![Set As Baseline](/assets/posts_img/baseline_1.png)
 
 ### Steps
 
@@ -50,10 +52,10 @@ Follow the steps below to create automatic thresholds in Carrier:
     - Upload Task Archive: [package.zip](https://git.epam.com/karen_florykian/tasks/-/blob/thresholds/package.zip?ref_type=heads).
     - Specify Task Handler: `lambda_handler.handler` (`lambda_handler` - file name, `handler` - function name).
 
-    ![Upload Task](/assets/posts_img/thresholds_task_fields.png)
+    ![Task Fields](/assets/posts_img/thresholds_task_fields.png)
 
 3. Add the following task parameters.
-    1) `action`: **create**, **update**, or **delete**.
+    1. `action`: **create**, **update**, or **delete**.
 
     `create` initiates a call to the baseline endpoint, retrieves baseline data, applies the requested change, and creates new thresholds.
 
@@ -61,17 +63,17 @@ Follow the steps below to create automatic thresholds in Carrier:
     
     `delete` deletes specified thresholds from the Carrier.
 
-    2) `project_id`: ID of the project.
-    3) `url`: URL of the Carrier installation.
-    4) `token`: authorization token.
-    5) `change_in_percentages`: percentage change applied to threshold values. (with `5` - threshold values will be increased by **5%**). 
-    6) `env`: environment of the test.
-    7) `target`: target metric.
-    8) `aggregation`: aggregation method.
-    9) `comparison`: comparison criteria (**gte** - greater than or equal to).
-    10) `test_modified`: name of the test.
+    2. `project_id`: ID of the project.
+    3. `url`: URL of the Carrier installation.
+    4. `token`: authorization token.
+    5. `change_in_percentages`: percentage change applied to threshold values. (with `5` - threshold values will be increased by **5%**). 
+    6. `env`: environment of the test.
+    7. `target`: target metric.
+    8. `aggregation`: aggregation method.
+    9. `comparison`: comparison criteria (**gte** - greater than or equal to).
+    10. `test_modified`: name of the test.
 
-    ![Upload Task](/assets/posts_img/thresholds_task_parameters.png)
+    ![Task Parameters](/assets/posts_img/thresholds_task_parameters.png)
 
 4. After setting up the task, click the `Save` button to complete the task configuration.
 
@@ -87,9 +89,29 @@ Follow the steps below to create automatic thresholds in Carrier:
 1. Once the task is executed, navigate to the `Performance` tab.
 2. Check the thresholds set for various performance metrics based on the baseline test.
 
-    ![Verify Thresholds](/assets/posts_img/thresholds_task_result.png)
+    ![Task Result](/assets/posts_img/thresholds_task_result.png)
 
 By following these steps, you can create automatic thresholds in Carrier, ensuring that your application meets the desired performance benchmarks.
+
+### Update Action Example
+
+Set `action` to `update` and change`change_in_percentages` value. Then run the task.
+
+![Task Result](/assets/posts_img/thresholds_task_update_parameters.png)
+
+As a result, all thresholds corresponding to the entered parameters were increased by 5 percent.
+
+![Task Result](/assets/posts_img/thresholds_task_update_result.png)
+
+### Delete Action Example
+
+Set `action` to `delete`. Then run the task.
+
+![Task Result](/assets/posts_img/thresholds_task_delete_parameters.png)
+
+As a result, all thresholds that matched the entered parameters were deleted.
+
+![Task Result](/assets/posts_img/thresholds_task_delete_result.png)
 
 ### Next Steps
 
