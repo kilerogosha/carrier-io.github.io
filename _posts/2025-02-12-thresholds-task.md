@@ -17,7 +17,7 @@ Before you begin creating automatic thresholds in Carrier, ensure that you have 
 
 - Installed and set up Carrier successfully.
 - Created a project in Carrier.
-- Configured and executed a test with a baseline available.
+- Configured and executed a test and marked it as the baseline.
 
 ### Steps
 
@@ -64,8 +64,8 @@ Follow the steps below to create automatic thresholds in Carrier:
     2) `project_id`: ID of the project.
     3) `url`: URL of the Carrier installation.
     4) `token`: authorization token.
-    5) `change_in_percentages`: percentage change to apply.
-    6) `env`: environment of the project.
+    5) `change_in_percentages`: percentage change applied to threshold values. (with `5` - threshold values will be increased by **5%**). 
+    6) `env`: environment of the test.
     7) `target`: target metric.
     8) `aggregation`: aggregation method.
     9) `comparison`: comparison criteria (**gte** - greater than or equal to).
